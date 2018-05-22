@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Hi Angular';
+
+  public someArr = [1, 2, 3];
+
+  private _rate = 2000;
+
+  public getMoney(): number {
+    return Math.round(this._rate * 2.14);
+  }
 }
