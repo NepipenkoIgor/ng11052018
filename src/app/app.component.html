@@ -1,5 +1,10 @@
-<h1>
-  {{ title.length +  ' ' + getMoney() + '$'}}!
-</h1>
+<app-header>
+  <img [src]="logoSrc" alt="" [style.width.px]="width">
+  <h3 (click)="changeTitle($event)" [innerHTML]="title"></h3>
+  <app-search
+    (search)="onSearch($event)"
+    [placeholder]="placeholder"></app-search>
+</app-header>
+{{searchTerm}}
 
 

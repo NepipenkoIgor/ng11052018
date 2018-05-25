@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,17 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Hi Angular';
+  public title = 'Ng Course';
+  public logoSrc = 'assets/images/primeng.png';
+  public width = 50;
+  public placeholder = 'Search term';
+  public searchTerm;
 
-  public someArr = [1, 2, 3];
+  public changeTitle(e: MouseEvent): void {
+    console.log(e.target);
+  }
 
-  private _rate = 2000;
-
-  public getMoney(): number {
-    return Math.round(this._rate * 2.14);
+  public onSearch(searchTerm: string) {
+    this.searchTerm = searchTerm;
   }
 }
