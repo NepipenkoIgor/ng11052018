@@ -3,21 +3,28 @@ import {NgModule} from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
 import { SearchComponent } from './search/search.component';
+import { CardComponent } from './card/card.component';
+import { UsersFilterPipe } from './common/pipe/users-filter.pipe';
+import { TooltipDirective } from './common/directives/tooltip.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    CardComponent,
+    UsersFilterPipe,
+    TooltipDirective
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   bootstrap: [AppComponent]
 })

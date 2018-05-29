@@ -5,6 +5,13 @@
     (search)="onSearch($event)"
     [placeholder]="placeholder"></app-search>
 </app-header>
-{{searchTerm}}
-
-
+<div *ngIf="users | async as userList; else loadGif ">
+  <app-card *ngFor="let user of userList | usersFilter:searchTerm; index as i,odd as isOdd "
+            [user]="user"
+            [position]="i+1"
+            [isOdd]="isOdd"
+  ></app-card>
+</div>
+<ng-template #loadGif>
+  ...loading
+</ng-template>
