@@ -12,3 +12,17 @@
 .background {
   background-color: lightgrey;
 }
+
+
+.tooltip-container .tooltip {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: none;
+}
+
+.tooltip-container .tooltip.tooltip-active {
+  display: block;
+}

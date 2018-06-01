@@ -1,9 +1,10 @@
-import {Directive, HostBinding, Input} from '@angular/core';
+import {Directive, ElementRef, HostBinding, Input, OnInit} from '@angular/core';
 
 @Directive({
-  selector: '[appTooltip]'
+  selector: '[appTooltip]',
+  exportAs: 'tooltip'
 })
-export class TooltipDirective {
+export class TooltipDirective implements OnInit {
 
   @HostBinding('class.tooltip-container')
   public tooltipContainer = true;
@@ -19,7 +20,19 @@ export class TooltipDirective {
   }
 
 
-  constructor() {
+  public constructor(private _elementRef: ElementRef) {
   }
 
+  public ngOnInit(): void {
+    this._tooltipContext.className = 'tooltip';
+    this._elementRef.nativeElement.appendChild(this._tooltipContext);
+  }
+
+  public hide(): void {
+    this._tooltipContext.classList.remove('tooltip-active');
+  }
+
+  public show(): void {
+    this._tooltipContext.classList.add('tooltip-active');
+  }
 }

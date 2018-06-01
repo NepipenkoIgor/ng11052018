@@ -1,7 +1,13 @@
 <mat-card [ngClass]="{background:isOdd}">
   <mat-card-header>
     <div class="position">{{position}}</div>
-    <img class="avatar" *ngIf="user?.photo" [src]="user?.photo"/>
-    <div class="name">{{user.firstName}} {{user.surname}}</div>
+    <img class="avatar"
+         (mouseenter)="t.show()"
+         (mouseleave)="t.hide()"
+         *ngIf="user?.photo" [src]="user?.photo"/>
+    <div class="name"
+         [appTooltip]="user?.country"
+         #t="tooltip"
+    >{{user.firstName}} {{user.surname}}</div>
   </mat-card-header>
 </mat-card>

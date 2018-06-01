@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {IUser, users$} from './users';
+import {Component, Inject, OnInit} from '@angular/core';
+
 import {Observable} from 'rxjs';
+import {IUser, UsersService} from './common/services/users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   public title = 'Ng Course';
@@ -14,12 +15,14 @@ export class AppComponent implements OnInit {
   public placeholder = 'Search term';
   public searchTerm;
 
-  public users: Observable<IUser[]> = users$;
+  public users: Observable<IUser[]>;
+
+  public constructor(private  _usersService: UsersService) {
+
+  }
 
   public ngOnInit(): void {
-    // users$.subscribe((users: IUser[]) => {
-    //   this.users = users;
-    // });
+    this.users = this._usersService.getUsers();
   }
 
 
