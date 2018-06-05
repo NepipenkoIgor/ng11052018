@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {IUser} from '../users';
 import {NonSingletonService} from '../common/services/non-singleton.service';
+import {IUser} from '../common/services/users.service';
 
 @Component({
   selector: 'app-card',
