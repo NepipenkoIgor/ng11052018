@@ -8,6 +8,10 @@ import {NonSingletonService} from '../common/services/non-singleton.service';
   providers: [NonSingletonService]
 })
 export class HeaderComponent implements OnInit {
+  public title = 'Ng Course';
+  public logoSrc = 'assets/images/primeng.png';
+  public width = 50;
+  public placeholder = 'Search term';
 
   constructor(
     private _nonSingletonService: NonSingletonService
@@ -17,5 +21,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     console.log(`header => ${this._nonSingletonService.getDate()}`);
   }
+
 
 }

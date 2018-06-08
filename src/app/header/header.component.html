@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
-  <ng-content select="h3"></ng-content>
-  <ng-content select="img"></ng-content>
+  <img [src]="logoSrc" alt="" [style.width.px]="width">
 
-  <ng-content></ng-content>
+  <app-menu></app-menu>
 
+  <app-search
+    (search)="onSearch($event)"
+    [placeholder]="placeholder"></app-search>
 </mat-toolbar>
