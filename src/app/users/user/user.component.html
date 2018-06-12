@@ -1,4 +1,67 @@
-{{title}} {{userId}}
-<pre>
-  {{currentUser | json}}
-</pre>
+
+<h3>Template</h3>
+<!--<input type="text" ngModel #c="ngModel" required minlength="4">-->
+<!--{{ c.valueChanges | async}}-->
+<!--{{ c.valid }}-->
+
+<div ngForm #f="ngForm">
+  <div>
+    <input type="text" name="firstName" ngModel
+           required minlength="4" appNameValidator>
+  </div>
+  <div>
+    <input type="text" name="lastName" ngModel  required minlength="4">
+  </div>
+  <div ngModelGroup="passwordGroup" appAsyncEqualValidator>
+    <div>
+      <input type="password" name="password" ngModel  required minlength="4">
+    </div>
+    <div>
+      <input type="password" name="cpassword" ngModel  required minlength="4">
+    </div>
+  </div>
+  <button [disabled]="!f.valid" >Send</button>
+</div>
+<pre>{{ f.value | json}}</pre>
+<pre>{{ f.valid }}</pre>
+
+
+<h3>Reactive</h3>
+<!--<input type="text" [formControl]="firstName" >-->
+<!--{{ firstName.valueChanges | async}}-->
+<!--{{ firstName.valid }}-->
+
+
+<div [formGroup]="form">
+  <div>
+    <input type="text" [formControl]="form.get('firstName')" >
+  </div>
+  <div>
+    <input type="text"  formControlName="lastName">
+  </div>
+  <div formGroupName="passwordGroup">
+    <div>
+      <input type="text" formControlName="password" >
+    </div>
+    <div>
+      <input type="text"  formControlName="cpassword">
+    </div>
+  </div>
+</div>
+<pre>{{ form.value | json}}</pre>
+<pre>{{ form.valid }}</pre>
+<pre>{{ form.get('firstName').errors | json }}</pre>
+
+
+<!--<div [formGroup]="formWithEmails">-->
+  <!--<ul formGroupName="emails">-->
+    <!--<li *ngFor="let e of formWithEmails.get('emails').controls; index as i">-->
+
+      <!--<input type="text" [formControl]="e" >-->
+
+    <!--</li>-->
+  <!--</ul>-->
+  <!--<button (click)="addEmail()">Add emails</button>-->
+<!--</div>-->
+<!--<pre>{{ formWithEmails.value | json}}</pre>-->
+<!--<pre>{{ formWithEmails.valid }}</pre>-->

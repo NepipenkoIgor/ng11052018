@@ -13,7 +13,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {BASE_URL} from './config';
 import {NonSingletonService} from './common/services/non-singleton.service';
-import { InfoComponent } from './info/info.component';
 import { UsersComponent } from './users/users.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
@@ -21,6 +20,9 @@ import { MenuComponent } from './header/menu/menu.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserComponent } from './users/user/user.component';
 import {UserResolveService} from './users/user/user-resolve.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NameValidatorDirective } from './users/user/name-validator.directive';
+import { AsyncEqualValidatorDirective } from './users/user/async-equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,17 @@ import {UserResolveService} from './users/user/user-resolve.service';
     CardComponent,
     UsersFilterPipe,
     TooltipDirective,
-    InfoComponent,
     UsersComponent,
     MenuComponent,
     UsersListComponent,
-    UserComponent
+    UserComponent,
+    NameValidatorDirective,
+    AsyncEqualValidatorDirective
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     NoopAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,

@@ -1,6 +1,5 @@
 import {Route} from '@angular/router';
 import {UsersComponent} from './users/users.component';
-import {InfoComponent} from './info/info.component';
 import {UsersListComponent} from './users/users-list/users-list.component';
 import {UserComponent} from './users/user/user.component';
 import {UserResolveService} from './users/user/user-resolve.service';
@@ -38,7 +37,7 @@ export const routes: Route[] = [
   },
   {
     path: 'info',
-    component: InfoComponent
+    loadChildren: './info/info.module#InfoModule'
   },
   {
     path: '**',

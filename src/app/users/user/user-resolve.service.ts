@@ -20,13 +20,13 @@ export class UserResolveService implements Resolve<IUser> {
       .pipe(map((users: IUser[]) => {
           const currentUser = users.find((user: IUser) => route.params.userId === user.id.toString());
           if (!currentUser) {
-            return Observable.throw('no user');
+             throw new Error('no user');
           }
           return currentUser;
         }),
         catchError((err: string) => {
           this._router.navigate(['users']);
-          return of('null');
+          return of(null);
         })
       );
 
